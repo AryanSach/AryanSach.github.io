@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aryan Sachdeva — ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0A0A0A;
+  --ink2:#1A1A2E;
+  --accent:#1E3A8A;
+  --accent-lt:#3B82F6;
+  --paper:#FAFAF8;
+  --paper2:#F3F3EF;
+  --rule:#E5E5E0;
+  --muted:#6B6B6B;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;height:56px;
+  background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--rule);
+}
+.nav-mark{font-family:var(--mono);font-size:0.78rem;font-weight:500;color:var(--ink);letter-spacing:0.04em}
+.nav-mark em{color:var(--accent);font-style:normal}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{font-size:0.72rem;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+
+/* HERO */
+#hero{
+  min-height:100vh;padding:120px 5% 80px;
+  display:grid;grid-template-columns:1fr 420px;
+  gap:0;align-items:end;
+  border-bottom:1px solid var(--rule);
+  position:relative;
+}
+.hero-left{padding-right:6rem;padding-bottom:6rem}
+.hero-index{
+  font-family:var(--mono);font-size:0.7rem;color:var(--muted);
+  letter-spacing:0.14em;text-transform:uppercase;margin-bottom:2.5rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.hero-index::after{content:'';flex:1;height:1px;background:var(--rule)}
+.hero-name{
+  font-family:var(--serif);font-size:clamp(4rem,7vw,7.5rem);
+  font-weight:900;line-height:0.9;color:var(--ink);
+  letter-spacing:-0.03em;margin-bottom:2rem;
+}
+.hero-name em{color:var(--accent);font-style:italic}
+.hero-role{
+  font-size:0.8rem;font-weight:500;color:var(--muted);
+  letter-spacing:0.16em;text-transform:uppercase;
+  border-left:2px solid var(--accent);padding-left:1rem;
+  margin-bottom:2.5rem;line-height:1.6;
+}
+.hero-summary{
+  font-size:1.05rem;font-weight:300;color:#3A3A3A;
+  line-height:1.8;max-width:520px;margin-bottom:3rem;
+}
+.hero-summary strong{font-weight:500;color:var(--ink)}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-ink{
+  background:var(--ink);color:var(--paper);padding:0.75rem 2rem;
+  font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  text-decoration:none;transition:background 0.2s;display:inline-block;
+}
+.btn-ink:hover{background:var(--accent)}
+.btn-ghost{
+  background:transparent;color:var(--ink);padding:0.75rem 2rem;
+  font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
+  text-decoration:none;border:1px solid var(--ink);transition:all 0.2s;display:inline-block;
+}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+
+/* hero right — big stats column */
+.hero-right{
+  border-left:1px solid var(--rule);padding:0 0 6rem 4rem;
+  display:flex;flex-direction:column;justify-content:flex-end;gap:0;
+}
+.stat-block{
+  padding:2rem 0;border-bottom:1px solid var(--rule);
+}
+.stat-block:last-child{border-bottom:none}
+.stat-fig{
+  font-family:var(--serif);font-size:3.8rem;font-weight:900;
+  color:var(--ink);line-height:1;letter-spacing:-0.03em;
+}
+.stat-fig sup{font-size:1.4rem;color:var(--accent)}
+.stat-desc{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem}
+
+/* SECTION BASE */
+section{padding:100px 5%}
+.section-wrap{max-width:1200px;margin:0 auto}
+.eyebrow{
+  font-family:var(--mono);font-size:0.68rem;font-weight:500;
+  color:var(--accent);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1rem;
+}
+.sec-title{
+  font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.5rem);
+  font-weight:700;color:var(--ink);letter-spacing:-0.02em;margin-bottom:3rem;
+  border-bottom:1px solid var(--rule);padding-bottom:2rem;
+}
+
+/* EXPERIENCE */
+#experience{background:var(--paper2)}
+.exp-item{
+  display:grid;grid-template-columns:220px 1fr;
+  gap:4rem;padding:3rem 0;border-bottom:1px solid var(--rule);
+}
+.exp-item:last-child{border-bottom:none}
+.exp-meta{}
+.exp-period{font-family:var(--mono);font-size:0.7rem;color:var(--muted);letter-spacing:0.06em;margin-bottom:0.5rem}
+.exp-org{font-size:0.78rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em}
+.exp-loc{font-size:0.72rem;color:var(--muted);margin-top:0.2rem}
+.exp-role{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--ink);margin-bottom:1.2rem;line-height:1.2}
+.exp-list{list-style:none;display:flex;flex-direction:column;gap:0.7rem}
+.exp-list li{font-size:0.875rem;color:#3A3A3A;line-height:1.7;padding-left:1.2rem;position:relative}
+.exp-list li::before{content:'—';position:absolute;left:0;color:var(--accent);font-weight:600}
+.exp-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.4rem}
+.exp-tag{font-family:var(--mono);font-size:0.65rem;color:var(--muted);border:1px solid var(--rule);padding:0.2rem 0.6rem;letter-spacing:0.06em}
+
+/* PROJECTS */
+.proj-grid{display:grid;gap:0}
+.proj-item{
+  display:grid;grid-template-columns:80px 1fr 1fr;
+  gap:3rem;padding:3.5rem 0;border-bottom:1px solid var(--rule);
+  align-items:start;
+}
+.proj-item:last-child{border-bottom:none}
+.proj-num{
+  font-family:var(--serif);font-size:3rem;font-weight:900;
+  color:var(--rule);line-height:1;letter-spacing:-0.04em;
+  padding-top:0.2rem;
+}
+.proj-left{}
+.proj-type{font-family:var(--mono);font-size:0.65rem;color:var(--accent);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:0.6rem}
+.proj-title{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:1rem}
+.proj-stack{display:flex;flex-wrap:wrap;gap:0.35rem}
+.proj-tech{font-family:var(--mono);font-size:0.65rem;background:var(--ink);color:var(--paper);padding:0.2rem 0.55rem;letter-spacing:0.04em}
+.proj-right{}
+.proj-desc{font-size:0.875rem;color:#3A3A3A;line-height:1.75;margin-bottom:1.2rem}
+.proj-metrics{display:flex;flex-direction:column;gap:0.4rem;border-left:2px solid var(--accent);padding-left:1rem}
+.proj-metric{font-family:var(--mono);font-size:0.7rem;color:var(--accent);font-weight:500}
+
+/* SKILLS */
+#skills{background:var(--ink)}
+#skills .eyebrow{color:var(--accent-lt)}
+#skills .sec-title{color:var(--paper);border-color:rgba(255,255,255,0.08)}
+.skills-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.skill-col{padding:2.5rem 2.5rem 2.5rem 0;border-right:1px solid rgba(255,255,255,0.07)}
+.skill-col:last-child{border-right:none;padding-right:0;padding-left:2.5rem}
+.skill-col:nth-child(2){padding:2.5rem}
+.skill-col-label{font-family:var(--mono);font-size:0.65rem;color:rgba(255,255,255,0.35);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1.2rem}
+.skill-list{display:flex;flex-direction:column;gap:0.5rem}
+.skill-item{font-size:0.9rem;color:rgba(255,255,255,0.75);font-weight:300;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.skill-item:last-child{border-bottom:none}
+
+/* CONTACT */
+#contact{}
+.contact-split{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.contact-lede{font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:2rem}
+.contact-links{display:flex;flex-direction:column;gap:0}
+.c-link{
+  display:flex;align-items:center;gap:1.2rem;
+  padding:1.1rem 0;border-bottom:1px solid var(--rule);
+  text-decoration:none;color:var(--ink);font-size:0.875rem;
+  font-weight:500;transition:color 0.2s;
+}
+.c-link:hover{color:var(--accent)}
+.c-link:last-child{border-bottom:none}
+.c-link-label{font-family:var(--mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;width:80px;flex-shrink:0}
+
+/* FORM */
+.form{display:flex;flex-direction:column;gap:1.2rem}
+.form-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{display:flex;flex-direction:column;gap:0.4rem}
+.field label{font-family:var(--mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
+.field input,.field textarea{
+  background:transparent;border:none;border-bottom:1px solid var(--rule);
+  padding:0.6rem 0;font-size:0.875rem;font-family:var(--sans);
+  color:var(--ink);outline:none;transition:border-color 0.2s;resize:none;
+}
+.field input:focus,.field textarea:focus{border-bottom-color:var(--accent)}
+.field textarea{height:100px}
+.form-submit-row{display:flex;align-items:center;gap:1.5rem;margin-top:0.5rem}
+.form-note{font-size:0.75rem;color:var(--muted)}
+
+/* FOOTER */
+footer{
+  background:var(--paper2);border-top:1px solid var(--rule);
+  padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.ft-left{font-family:var(--mono);font-size:0.7rem;color:var(--muted)}
+.ft-right{font-size:0.72rem;color:var(--muted)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr;padding-bottom:3rem}
+  .hero-left{padding-right:0;padding-bottom:3rem}
+  .hero-right{border-left:none;border-top:1px solid var(--rule);padding:3rem 0 0}
+  .hero-right{flex-direction:row;flex-wrap:wrap;gap:0}
+  .stat-block{flex:1 1 140px;padding:1.5rem 0;border-bottom:none;border-right:1px solid var(--rule)}
+  .stat-block:last-child{border-right:none}
+  .exp-item{grid-template-columns:1fr;gap:1rem}
+  .proj-item{grid-template-columns:50px 1fr;gap:2rem}
+  .proj-right{grid-column:2}
+  .skills-cols{grid-template-columns:1fr}
+  .skill-col,.skill-col:nth-child(2),.skill-col:last-child{border-right:none;border-bottom:1px solid rgba(255,255,255,0.07);padding:2rem 0}
+  .contact-split{grid-template-columns:1fr;gap:3rem}
+  .form-2{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-mark">aryan<em>.</em>sachdeva</div>
+  <ul class="nav-links">
+    <li><a href="#hero">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-index">Based in Delhi, India &nbsp;·&nbsp; Open to MLE roles</div>
+    <h1 class="hero-name">Aryan<br><em>Sachdeva</em></h1>
+    <div class="hero-role">Machine Learning Engineer<br>NLP &nbsp;·&nbsp; Computer Vision &nbsp;·&nbsp; Agentic AI</div>
+    <p class="hero-summary">
+      Building <strong>production-grade ML systems</strong> — fine-tuned multilingual transformers deployed in live client projects, real-time computer vision pipelines, and agentic AI workflows. Proficient in <strong>Python, PyTorch, LangGraph,</strong> and Django backend engineering.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-ink">Get in Touch</a>
+      <a href="#projects" class="btn-ghost">View Projects</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stat-block">
+      <div class="stat-fig">96<sup>%</sup></div>
+      <div class="stat-desc">NLP Model Accuracy</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-fig">95<sup>%</sup></div>
+      <div class="stat-desc">F1 Score</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-fig">30<sup>K</sup></div>
+      <div class="stat-desc">Training Samples</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-fig">−60<sup>%</sup></div>
+      <div class="stat-desc">Manual Effort via Automation</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-wrap">
+    <div class="eyebrow">Career</div>
+    <h2 class="sec-title">Experience</h2>
+    <div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Dec 2025 – Jun 2026</div>
+          <div class="exp-org">HashStudioz Technologies</div>
+          <div class="exp-loc">Noida, India</div>
+        </div>
+        <div>
+          <div class="exp-role">Full-Stack Development Intern</div>
+          <ul class="exp-list">
+            <li>Fine-tuned XLM-RoBERTa and MURIL on 30,000 samples for multilingual abuse detection across Hindi, English, and Hinglish — 96% accuracy, 95% F1, 97% precision, 4-category output; outperformed IndicBERT and XLM baselines; deployed in a live client project.</li>
+            <li>Engineered a real-time YOLO segmentation pipeline for glass detection (95% accuracy) and liquid fill-level estimation (92% accuracy, ±5–10% error) on 2,000+ annotated images; temporal smoothing reduced angle jitter by 20–25°; delivered as a client-facing system.</li>
+            <li>Built Playwright-based CCTV portal automation — classroom selection, time-snippet extraction, video download, WAV conversion — reducing manual effort by 40–60%.</li>
+            <li>Prototyped a Retrieval-Augmented Generation system using LlamaIndex and ChromaDB for document question-answering.</li>
+            <li>Designed RESTful Django APIs with JWT authentication and SQL backends (MySQL, PostgreSQL) serving ML inference in production.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">PyTorch</span>
+            <span class="exp-tag">NLP</span>
+            <span class="exp-tag">YOLO</span>
+            <span class="exp-tag">RAG</span>
+            <span class="exp-tag">Django</span>
+            <span class="exp-tag">Playwright</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Jun 2025 – Aug 2025</div>
+          <div class="exp-org">SoftSolutions Limited</div>
+          <div class="exp-loc">Lagos, Nigeria</div>
+        </div>
+        <div>
+          <div class="exp-role">Cybersecurity Intern</div>
+          <ul class="exp-list">
+            <li>Configured enterprise Windows Server environments — Active Directory, Group Policy, domain management — and conducted cybersecurity assessments in VMware virtualized infrastructure.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Windows Server</span>
+            <span class="exp-tag">VMware</span>
+            <span class="exp-tag">Network Security</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-wrap">
+    <div class="eyebrow">Work</div>
+    <h2 class="sec-title">Projects</h2>
+    <div class="proj-grid">
+
+      <div class="proj-item">
+        <div class="proj-num">01</div>
+        <div class="proj-left">
+          <div class="proj-type">NLP</div>
+          <div class="proj-title">Multilingual Abuse &amp; Threat Detection</div>
+          <div class="proj-stack">
+            <span class="proj-tech">PyTorch</span>
+            <span class="proj-tech">XLM-RoBERTa</span>
+            <span class="proj-tech">MURIL</span>
+            <span class="proj-tech">HuggingFace</span>
+          </div>
+        </div>
+        <div class="proj-right">
+          <p class="proj-desc">Dual-model NLP pipeline — sentence-level threat detection via XLM-RoBERTa and token-level abuse classification via MURIL. Trained on 30,000 samples with synthetic data generation; engineered normalization for leet speak, transliteration, and evasion patterns. Benchmarked against IndicBERT and XLM variants.</p>
+          <div class="proj-metrics">
+            <span class="proj-metric">96% Accuracy</span>
+            <span class="proj-metric">95% F1 Score</span>
+            <span class="proj-metric">97% Precision</span>
+            <span class="proj-metric">Client Deployed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-num">02</div>
+        <div class="proj-left">
+          <div class="proj-type">Agentic AI</div>
+          <div class="proj-title">AI Newsletter Agent</div>
+          <div class="proj-stack">
+            <span class="proj-tech">LangGraph</span>
+            <span class="proj-tech">LangChain</span>
+            <span class="proj-tech">Gemini API</span>
+            <span class="proj-tech">Groq</span>
+            <span class="proj-tech">Streamlit</span>
+          </div>
+        </div>
+        <div class="proj-right">
+          <p class="proj-desc">Autonomous multi-step newsletter generation agent using LangGraph orchestration. Gemini as primary inference model with Groq as a low-latency fallback; DDGS web search for real-time sourcing. Autonomously researches, structures, and drafts topical newsletters without human intervention. Live on HuggingFace Spaces.</p>
+          <div class="proj-metrics">
+            <span class="proj-metric">Fully Autonomous Pipeline</span>
+            <span class="proj-metric">Dual-LLM Fallback</span>
+            <span class="proj-metric">Live on HuggingFace Spaces</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-item">
+        <div class="proj-num">03</div>
+        <div class="proj-left">
+          <div class="proj-type">Computer Vision</div>
+          <div class="proj-title">CV-Based Container Fill Estimator</div>
+          <div class="proj-stack">
+            <span class="proj-tech">YOLO</span>
+            <span class="proj-tech">OpenCV</span>
+            <span class="proj-tech">Roboflow</span>
+            <span class="proj-tech">NumPy</span>
+          </div>
+        </div>
+        <div class="proj-right">
+          <p class="proj-desc">Real-time YOLO segmentation system for container detection and liquid fill-level estimation from live video. Dataset of 2,000+ annotated images via Roboflow; contour-based geometry for volume computation. Sliding-window median filtering with area thresholds, aspect ratio constraints, and 60% overlap validation for robust inference.</p>
+          <div class="proj-metrics">
+            <span class="proj-metric">95% Detection Accuracy</span>
+            <span class="proj-metric">±5–10% Fill Error</span>
+            <span class="proj-metric">Client Deployed</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-wrap">
+    <div class="eyebrow">Stack</div>
+    <h2 class="sec-title">Technical Skills</h2>
+    <div class="skills-cols">
+      <div class="skill-col">
+        <div class="skill-col-label">Core</div>
+        <div class="skill-list">
+          <div class="skill-item">Python</div>
+          <div class="skill-item">SQL</div>
+          <div class="skill-item">PyTorch</div>
+          <div class="skill-item">TensorFlow</div>
+          <div class="skill-item">Scikit-Learn</div>
+          <div class="skill-item">Pandas · NumPy</div>
+        </div>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-label">NLP &amp; Computer Vision</div>
+        <div class="skill-list">
+          <div class="skill-item">HuggingFace Transformers</div>
+          <div class="skill-item">XLM-RoBERTa · MURIL</div>
+          <div class="skill-item">LoRA · Text Classification</div>
+          <div class="skill-item">YOLO · OpenCV</div>
+          <div class="skill-item">Roboflow</div>
+        </div>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-label">Generative AI &amp; Backend</div>
+        <div class="skill-list">
+          <div class="skill-item">LangChain · LangGraph</div>
+          <div class="skill-item">LlamaIndex · ChromaDB</div>
+          <div class="skill-item">RAG · AI Agents</div>
+          <div class="skill-item">Django · REST APIs</div>
+          <div class="skill-item">Git · Playwright</div>
+          <div class="skill-item">HuggingFace Spaces</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="eyebrow">Let's talk</div>
+    <h2 class="sec-title">Get in Touch</h2>
+    <div class="contact-split">
+      <div>
+        <p class="contact-lede">Open to Machine Learning Engineer, Applied AI, and AI Research roles.</p>
+        <div class="contact-links">
+          <a href="mailto:aryan.sachdeva36@gmail.com" class="c-link">
+            <span class="c-link-label">Email</span>
+            aryan.sachdeva36@gmail.com
+          </a>
+          <a href="https://linkedin.com/in/YOUR-HANDLE" target="_blank" class="c-link">
+            <span class="c-link-label">LinkedIn</span>
+            linkedin.com/in/your-handle
+          </a>
+          <a href="https://github.com/YOUR-HANDLE" target="_blank" class="c-link">
+            <span class="c-link-label">GitHub</span>
+            github.com/your-handle
+          </a>
+          <a href="tel:+918447336886" class="c-link">
+            <span class="c-link-label">Phone</span>
+            +91 84473 36886
+          </a>
+        </div>
+      </div>
+      <div>
+        <form class="form" id="contactForm">
+          <div class="form-2">
+            <div class="field"><label>Name</label><input type="text" id="f-name" placeholder="Jane Smith"/></div>
+            <div class="field"><label>Email</label><input type="email" id="f-email" placeholder="jane@company.com"/></div>
+          </div>
+          <div class="field"><label>Subject</label><input type="text" id="f-subject" placeholder="MLE role at Acme Corp"/></div>
+          <div class="field"><label>Message</label><textarea id="f-msg" placeholder="Hi Aryan..."></textarea></div>
+          <div class="form-submit-row">
+            <button type="button" class="btn-ink" onclick="handleSubmit()">Send Message</button>
+            <span class="form-note" id="formNote"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="ft-left">© 2026 Aryan Sachdeva</span>
+  <span class="ft-right">Delhi, India &nbsp;·&nbsp; ML Engineer &nbsp;·&nbsp; NLP &nbsp;·&nbsp; CV &nbsp;·&nbsp; Agentic AI</span>
+</footer>
+
+<script>
+function handleSubmit(){
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const subject=document.getElementById('f-subject').value.trim();
+  const msg=document.getElementById('f-msg').value.trim();
+  if(!name||!email||!msg){document.getElementById('formNote').textContent='Please fill in name, email, and message.';return;}
+  const b=encodeURIComponent('From: '+name+' ('+email+')\n\n'+msg);
+  const s=encodeURIComponent(subject||'Portfolio enquiry');
+  window.location.href='mailto:aryan.sachdeva36@gmail.com?subject='+s+'&body='+b;
+  document.getElementById('formNote').textContent='✓ Opening your email client…';
+}
+
+const navAs=document.querySelectorAll('.nav-links a');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navAs.forEach(a=>a.style.color='');
+      const active=document.querySelector('.nav-links a[href="#'+e.target.id+'"]');
+      if(active)active.style.color='var(--ink)';
+    }
+  });
+},{threshold:0.3});
+document.querySelectorAll('section[id]').forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
